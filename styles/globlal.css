@@ -2,11 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #d1d5db;
+    background-color: #121214;
 }
 
 main {
@@ -17,7 +17,7 @@ main {
     justify-content: center;
 
     a {
-        color: #000;
+        color: #fff;
         text-decoration: underline;
 
         p {
@@ -27,15 +27,15 @@ main {
     }
 
     .gallery {
-        margin: 10px;
-        gap: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        width: 90%;
+        max-width: 1200px;
+        margin: 10px auto;
+        column-count: 4;
+        column-gap: 10px;
 
         img {
-            width: 300px;
-            height: 200px;
+            width: 100%;
+            margin: 0 0 10px 0;
             cursor: pointer;
             object-fit: cover;
             border-radius: 10px;

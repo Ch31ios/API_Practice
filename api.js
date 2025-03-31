@@ -6,17 +6,21 @@ function loadCats(quantity) {
         permite construir múltiples elementos antes de agregarlos al DOM, 
         reduciendo actualizaciones innecesarias y mejorando el rendimiento.
     */
-    for (let i = 0; i < quantity; i++) {
-        const img = document.createElement('img');
-        img.src = `https://cataas.com/cat?${Date.now() + i}`;
-        /* 
-            Se agrega un parámetro aleatorio para evitar caché y forzar al 
-            navegador a descargar una nueva imagen en cada solicitud.
-        */
-        img.alt = 'Cat Image';
-        // Se agrega evento para abrir modal.
-        img.addEventListener('click', () => openModal(img.src));
-        fragment.appendChild(img);
+    try {
+        for (let i = 0; i < quantity; i++) {
+            const img = document.createElement('img');
+            /* 
+                Se agrega un parámetro aleatorio para evitar caché y forzar al 
+                navegador a descargar una nueva imagen en cada solicitud.
+            */
+            img.src = `https://cataas.com/cat?${Date.now() + i}`;
+            img.alt = 'Cat Image';
+            // Se agrega evento para abrir modal.
+            img.addEventListener('click', () => openModal(img.src));
+            fragment.appendChild(img);
+        }
+    } catch (error) {
+        console.error('Error:', error);
     }
     gallery.appendChild(fragment);
 }
@@ -34,4 +38,4 @@ document.getElementById('modal').addEventListener('click', () => {
     document.getElementById('modal').style.display = 'none';
 });
 
-loadCats(20); // Llamamos a la función con la cantidad de imágenes deseada.
+loadCats(23); // Llamamos a la función con la cantidad de imágenes deseada.
