@@ -4,20 +4,34 @@ function loadCats(quantity) {
     /*
         Crea un fragmento de documento, una estructura en memoria que 
         permite construir múltiples elementos antes de agregarlos al DOM, 
-        reduciendo actualizaciones innecesarias del DOM y mejorando 
-        el rendimiento.
+        reduciendo actualizaciones innecesarias y mejorando el rendimiento.
     */
     for (let i = 0; i < quantity; i++) {
         const img = document.createElement('img');
         img.src = `https://cataas.com/cat?${Date.now() + i}`;
         /* 
             Se agrega un parámetro aleatorio para evitar caché y forzar al 
-            navegador a descargar una nueva imagen en cada solicitud
+            navegador a descargar una nueva imagen en cada solicitud.
         */
         img.alt = 'Cat Image';
+        // Se agrega evento para abrir modal.
+        img.addEventListener('click', () => openModal(img.src));
         fragment.appendChild(img);
     }
     gallery.appendChild(fragment);
 }
 
-loadCats(20); // Llamamos a la función con la cantidad de imágenes deseada
+// Abre el modal y muestra la imagen seleccionada.
+function openModal(src) {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    modalImg.src = src;
+    modal.style.display = 'flex';
+}
+
+// Cierra el modal al hacer clic en cualquier parte de él.
+document.getElementById('modal').addEventListener('click', () => {
+    document.getElementById('modal').style.display = 'none';
+});
+
+loadCats(20); // Llamamos a la función con la cantidad de imágenes deseada.

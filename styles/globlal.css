@@ -16,14 +16,18 @@ main {
     flex-direction: column;
     justify-content: center;
 
-    p {
-        margin: 15px 10px;
-        font-size: 2rem;
+    a {
+        color: #000;
+        text-decoration: underline;
+
+        p {
+            margin: 15px 10px;
+            font-size: 1.2rem;
+        }
     }
 
     .gallery {
         margin: 10px;
-        padding: 10px;
         gap: 10px;
         display: flex;
         flex-wrap: wrap;
@@ -32,7 +36,26 @@ main {
         img {
             width: 300px;
             height: 200px;
+            cursor: pointer;
             object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+
+    .modal {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: fixed;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.8);
+
+        img {
+            max-width: 80%;
+            max-height: 80%;
             border-radius: 10px;
         }
     }

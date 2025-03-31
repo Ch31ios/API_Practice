@@ -11,8 +11,16 @@
 
 <body>
     <main>
-        <p>CATAAS (Cat as a service) - API</p>
+        <!-- Titulo -->
+        <a href="https://cataas.com/" target="_blank" rel="noopener noreferrer">
+            <p>CATAAS (Cat as a service) - API</p>
+        </a>
+        <!-- Contenedor donde se mostrarán las imágenes de los gatos -->
         <div class="gallery" id="gallery"></div>
+        <!-- Modal para mostrar la imagen ampliada al hacer clic -->
+        <div class="modal" id="modal">
+            <img id="modalImg" src="" alt="Cat Image">
+        </div>
     </main>
     <!-- ----- Scripts ----- -->
     <script src="api.js"></script>
